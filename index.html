@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main__test {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Juste Prix !</h1>
+
+  <p>
+    Trouver un nombre entre 1 et 100 !
+  </p>
+
+  <section>
+    <input type="number" id="input__user" value="" />
+    <button type="button" id="button__send">Envoyer</button>
+  </section>
+
+  <p id="result">Merci de commercer à jouer</p>
+
+  <script>
+    let hiddenNumber = Math.floor(Math.random() * 100) + 1;
+    console.log("valeur", hiddenNumber)
+
+    let userValue = 0;
+
+    let buttonSend = document.getElementById("button__send");
+    buttonSend.addEventListener("click", function() {
+      // récupérer le nombre de l'utilisateur
+      let userInput = document.getElementById("input__user");
+
+      userValue = userInput.value;
+
+      let result = document.getElementById("result");
+
+      if (userValue < hiddenNumber) {
+        result.textContent = "C'est plus !";
+      } else if (userValue > hiddenNumber) {
+        result.textContent = "C'est moins !";
+      } else {
+        result.textContent = "C'est gagné, la valeur cachée était : " + hiddenNumber;
+        // relancer la partie !
+        hiddenNumber = Math.floor(Math.random() * 100) + 1;
+        userInput.value = "";
+      }
+    })
+  </script>
+
+  <!--
+  <p class="main__text" id="text-to-change">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ut velit sit aut atque iusto necessitatibus doloremque, reprehenderit illum laudantium nihil minus veniam, aliquid, temporibus tempora dicta molestiae quasi iste.</p>
+  <button id="button-action" type="button">Change text</button>
+  -->
+
+  <script>
+    // reçoit, assignation, déclaration
+    /*
+    let content = "Le texte est modifié !";
+
+    let textToChange = document.getElementById("text-to-change");
+
+    let button = document.getElementById("button-action");
+
+    button.addEventListener("mouseout", function() {
+      textToChange.textContent = content;
+    })
+    */
+  </script>
+</body>
+</html>
